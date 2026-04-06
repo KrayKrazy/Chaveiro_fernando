@@ -166,6 +166,10 @@ a { text-decoration: none; color: inherit; }
     font-size: 3.2rem; font-weight: 900; color: var(--primary);
     text-shadow: 0 0 18px var(--primary-glow);
 }
+.stat-static {
+    font-size: 3.2rem; font-weight: 900; color: var(--primary);
+    text-shadow: 0 0 18px var(--primary-glow);
+}
 .strip-stat span { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px; display: block; }
 
 /* ── Services ── */
