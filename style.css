@@ -258,6 +258,141 @@ a { text-decoration: none; color: inherit; }
 .social-links a:hover { color: var(--primary); transform: translateX(4px); }
 .footer-bottom { padding: 22px 0; border-top: 1px solid rgba(255,255,255,.05); text-align: center; color: var(--text-muted); font-size: 0.88rem; }
 
+/* ── Sticky Bottom-Left Button ── */
+.sticky-bottom-left {
+    position: fixed; bottom: 28px; left: 28px; z-index: 999;
+    display: flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, #f2c94c, #f59e0b);
+    color: #0a0a0c;
+    padding: 14px 22px; border-radius: 50px;
+    font-weight: 700; font-size: 0.95rem;
+    box-shadow: 0 8px 30px rgba(242,201,76,.45);
+    transition: var(--transition);
+    animation: floatBL 3.5s ease-in-out infinite;
+}
+.sticky-bottom-left:hover { transform: scale(1.06); box-shadow: 0 12px 40px rgba(242,201,76,.65); }
+.sticky-bl-icon { font-size: 1.4rem; }
+@keyframes floatBL {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
+}
+
+/* ── Curso de Chaveiro Section ── */
+.curso-chaveiro-section {
+    padding: 110px 0;
+    position: relative;
+}
+.curso-chaveiro-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(242,201,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+}
+.curso-card {
+    background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(242,201,76,0.05) 100%);
+    border: 1px solid var(--border-gold);
+    border-radius: 24px;
+    padding: 64px 72px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 0 0 1px rgba(242,201,76,0.1), 0 40px 80px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+.curso-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--primary), #f59e0b, var(--primary));
+    background-size: 200% 100%;
+    animation: shimmerBar 3s linear infinite;
+}
+@keyframes shimmerBar {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+.curso-badge {
+    display: inline-block;
+    background: rgba(242,201,76,0.12);
+    color: var(--primary);
+    border: 1px solid var(--border-gold);
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+}
+.curso-card h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.curso-card > p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 620px;
+    margin: 0 auto 36px;
+    line-height: 1.75;
+}
+.curso-features {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 28px;
+    margin-bottom: 44px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.curso-features li {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-subtle);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+.curso-features li:hover {
+    border-color: var(--border-gold);
+    color: var(--primary);
+    background: rgba(242,201,76,0.06);
+}
+.curso-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.btn-curso-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, #f2c94c, #f59e0b);
+    color: #0a0a0c;
+    padding: 18px 48px; border-radius: 12px;
+    font-weight: 800; font-size: 1.15rem;
+    font-family: 'Outfit', sans-serif;
+    box-shadow: 0 8px 32px rgba(242,201,76,0.45);
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+}
+.btn-curso-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 42px rgba(242,201,76,0.65);
+    background: linear-gradient(135deg, #fcd34d, #f2c94c);
+}
+.curso-urgencia {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
     .services-grid { grid-template-columns: repeat(2,1fr); }
@@ -268,6 +403,8 @@ a { text-decoration: none; color: inherit; }
     .dual-layout { grid-template-columns: 1fr; gap: 40px; }
     .dual-layout.reverse .dual-image { order: -1; }
     .hero-title { font-size: 4rem; }
+    .curso-card { padding: 48px 36px; }
+    .curso-card h2 { font-size: 2.2rem; }
 }
 @media (max-width: 640px) {
     .nav-links, .nav-btn { display: none; }
@@ -281,4 +418,10 @@ a { text-decoration: none; color: inherit; }
     .footer-content { grid-template-columns: 1fr; }
     .sticky-wpp-text { display: none; }
     .sticky-wpp { padding: 14px; }
+    .sticky-bl-text { display: none; }
+    .sticky-bottom-left { padding: 14px; }
+    .curso-card { padding: 36px 20px; }
+    .curso-card h2 { font-size: 1.8rem; }
+    .btn-curso-primary { padding: 16px 32px; font-size: 1rem; width: 100%; }
+    .curso-features { flex-direction: column; align-items: center; }
 }
